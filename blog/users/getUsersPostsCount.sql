@@ -1,4 +1,3 @@
-# Find users with posts
 SET @user_id = 1;
 
 SELECT
