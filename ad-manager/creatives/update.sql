@@ -1,4 +1,4 @@
-SET @creative_id = 1;
+SET @creative_id = 11;
 SET @name = 'New Name';
 SET @description = 'New Description';
 SET @html = '<p>HTML updated!</p>';

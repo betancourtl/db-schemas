@@ -17,6 +17,8 @@ CREATE TABLE creatives (
   name        VARCHAR(255),
   description TEXT,
   html        TEXT,
+  css         TEXT,
+  javascript  TEXT,
   created_at  DATETIME        DEFAULT NOW(),
   updated_at  DATETIME        DEFAULT NOW() ON UPDATE NOW()
 );
