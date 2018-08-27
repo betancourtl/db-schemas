@@ -8,6 +8,7 @@ CREATE TABLE users (
   last_name  VARCHAR(255),
   email      VARCHAR(255) UNIQUE NOT NULL,
   username   VARCHAR(255) UNIQUE NOT NULL,
+  password   VARCHAR(255)        NOT NULL,
   created_at DATETIME        DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME        DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -15,7 +16,7 @@ CREATE TABLE users (
 # We can put items like bags, paintball markers, barrels, loaders etc.
 CREATE TABLE categories (
   id         INT PRIMARY KEY AUTO_INCREMENT,
-  name       VARCHAR(255) UNIQUE,
+  category   VARCHAR(255) UNIQUE,
   created_at DATETIME        DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME        DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -23,7 +24,7 @@ CREATE TABLE categories (
 # Dye, Planet Eclipse, Shocker
 CREATE TABLE brands (
   id         INT PRIMARY KEY AUTO_INCREMENT,
-  name       VARCHAR(255),
+  brand      VARCHAR(255),
   created_at DATETIME        DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME        DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -109,5 +110,5 @@ CREATE TABLE likes (
   user_id    INT NOT NULL,
   FOREIGN KEY (item_id) REFERENCES items (id) ON DELETE CASCADE,
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
-  PRIMARY KEY (user_id, item_id)
+  PRIMARY KEY (item_id, user_id)
 );

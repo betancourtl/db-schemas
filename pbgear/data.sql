@@ -1,6 +1,6 @@
 USE pbgear_db;
 
-INSERT INTO categories (name)
+INSERT INTO categories (category)
 VALUES
   ('markers'),
   ('accessories'),
@@ -13,7 +13,7 @@ VALUES
   ('tanks'),
   ('gearbags');
 
-INSERT INTO brands (name)
+INSERT INTO brands (brand)
 VALUES
   ('dye'),
   ('eclipse'),
@@ -31,12 +31,12 @@ VALUES
   ('other'),
   ('ninja');
 
-INSERT INTO users (username, email, first_name, last_name)
+INSERT INTO users (username, password, email, first_name, last_name)
 VALUES
-  ('@admin', 'admin@gmail.com', 'Luis', 'Betancourt'),
-  ('@cocker', 'cocker@gmail.com', 'Budd', 'Orr'),
-  ('@eclipse', 'eclipse@gmail.com', 'Jack', 'Wood'),
-  ('@dye', 'Dye@gmail.com', 'Ollie', 'Lang');
+  ('@admin', '123', 'admin@gmail.com', 'Luis', 'Betancourt'),
+  ('@cocker', '123', 'cocker@gmail.com', 'Budd', 'Orr'),
+  ('@eclipse', '123', 'eclipse@gmail.com', 'Jack', 'Wood'),
+  ('@dye', '123', 'Dye@gmail.com', 'Ollie', 'Lang');
 
 INSERT INTO conditions (status)
 VALUES
@@ -173,8 +173,7 @@ VALUES
 INSERT INTO items (model, title, sold, description, year, price, category_id, brand_id, user_id, condition_id, country_id, state_id)
 VALUES
   ('Dye M3', 'LNIB Dye M3', FALSE, 'Dye M3 Like New!', 2005, 1200.00, 1, 1, 1, 2, 1, 30),
-  ('Ego 2007', 'LNIB Ego 2007', FALSE, 'LNIB Ego 2007', 2007, 300.00, 1, 2, 1, 2, 1, 30)
-;
+  ('Ego 2007', 'LNIB Ego 2007', FALSE, 'LNIB Ego 2007', 2007, 300.00, 1, 2, 1, 2, 1, 30);
 
 INSERT INTO images (url)
 VALUES
@@ -190,5 +189,11 @@ VALUES
   (1, 2),
   (2, 3),
   (2, 4),
-  (2, 5)
+  (2, 5);
+
+INSERT INTO likes (item_id, user_id)
+VALUES
+  (1, 1),
+  (1, 2),
+  (1, 3)
 ;
