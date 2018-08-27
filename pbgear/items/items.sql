@@ -25,7 +25,8 @@ SELECT
     SELECT IFNULL(concat('[', group_concat(concat('{"id": ', id, ', "url": "', url, '"}') SEPARATOR ','), ']}'),
                   '[]') AS images
     FROM item_images
-      LEFT JOIN images ON item_images.image_id = images.id
+      LEFT JOIN images
+        ON item_images.image_id = images.id
     WHERE item_id = items.id
   ) AS images,
   -- Get the foreign key properties
@@ -51,6 +52,14 @@ FROM items
     ON items.state_id = states.id
   LEFT JOIN users
     ON items.user_id = users.id
-ORDER BY items.created_at DESC
-LIMIT 15;
-
+-- You can fine tune the selection further
+# WHERE
+#   year BETWEEN 2005 AND 2007
+#   AND price BETWEEN 0 AND 1200
+#   AND brand = 'dye'
+#   AND sold = 0
+#   AND title like '%LN%'
+#   AND country = 'US'
+#   AND category = 'markers'
+#   AND status = 'used'
+ORDER BY items.created_at DESC;

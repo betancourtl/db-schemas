@@ -173,7 +173,7 @@ VALUES
 INSERT INTO items (model, title, sold, description, year, price, category_id, brand_id, user_id, condition_id, country_id, state_id)
 VALUES
   ('Dye M3', 'LNIB Dye M3', FALSE, 'Dye M3 Like New!', 2005, 1200.00, 1, 1, 1, 2, 1, 30),
-  ('Ego 2007', 'LNIB Ego 2007', FALSE, 'LNIB Ego 2007', 2007, 300.00, 1, 2, 1, 2, 1, 30);
+  ('Ego 2007', 'LNIB Ego 2007', TRUE, 'LNIB Ego 2007', 2007, 300.00, 1, 2, 1, 2, 1, 30);
 
 INSERT INTO images (url)
 VALUES
