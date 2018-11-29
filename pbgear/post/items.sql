@@ -22,13 +22,20 @@ SELECT
   ) AS likes,
   -- Get the images
   (
-    SELECT IFNULL(concat('[', group_concat(concat('{"id": ', id, ', "url": "', url, '"}') SEPARATOR ','), ']}'),
+    SELECT IFNULL(concat('[', group_concat(concat('{"id": ', id, ', "url": "', url, '"}') SEPARATOR ','), ']'),
                   '[]') AS images
     FROM item_images
       LEFT JOIN images
         ON item_images.image_id = images.id
     WHERE item_id = items.id
   ) AS images,
+  -- Get the comments
+  (
+    SELECT IFNULL(concat('[', group_concat(concat('{"id": ', id, ', "comment": "', comment, '"}') SEPARATOR ','), ']}'),
+                  '[]') AS comments
+    FROM comments
+    WHERE item_id = items.id
+  ) AS comments,
   -- Get the foreign key properties
   users.first_name,
   users.last_name,
@@ -63,3 +70,7 @@ FROM items
 #   AND category = 'markers'
 #   AND status = 'used'
 ORDER BY items.created_at DESC;
+
+# SELECT *
+# FROM comments
+# LEFT JOIN users ON comments.user_id = users.id;

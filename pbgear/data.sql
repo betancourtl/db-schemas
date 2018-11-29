@@ -197,3 +197,9 @@ VALUES
   (1, 2),
   (1, 3)
 ;
+
+INSERT INTO comments (comment, user_id, item_id)
+VALUES
+  ('Nice Marker!', 1, 1),
+  ('How much for it?', 2, 1)
+;

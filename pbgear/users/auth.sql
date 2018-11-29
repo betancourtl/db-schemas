@@ -1,6 +1,5 @@
 USE pbgear_db;
 
--- Get the user
 SELECT
   id,
   first_name,

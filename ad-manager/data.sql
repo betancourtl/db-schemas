@@ -1,3 +1,5 @@
+USE ad_manager_db;
+
 INSERT INTO users (username, email, first_name, last_name)
 VALUES
   ('Luis', 'luis@gmail.com', 'Luis', 'Betancourt'),

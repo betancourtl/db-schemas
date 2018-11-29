@@ -24,7 +24,7 @@ CREATE TABLE categories (
 # Dye, Planet Eclipse, Shocker
 CREATE TABLE brands (
   id         INT PRIMARY KEY AUTO_INCREMENT,
-  brand      VARCHAR(255),
+  brand      VARCHAR(255) UNIQUE,
   created_at DATETIME        DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME        DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -111,4 +111,15 @@ CREATE TABLE likes (
   FOREIGN KEY (item_id) REFERENCES items (id) ON DELETE CASCADE,
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
   PRIMARY KEY (item_id, user_id)
+);
+
+CREATE TABLE comments (
+  id         INT PRIMARY KEY AUTO_INCREMENT,
+  comment    TEXT,
+  created_at DATETIME        DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME        DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  user_id    INT NOT NULL,
+  item_id    INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+  FOREIGN KEY (item_id) REFERENCES items (id) ON DELETE CASCADE
 );
