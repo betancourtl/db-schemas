@@ -49,8 +49,8 @@ CREATE TABLE country_states (
   state_id   INT NOT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (country_id) REFERENCES countries (id),
-  FOREIGN KEY (state_id) REFERENCES states (id),
+  FOREIGN KEY (country_id) REFERENCES countries (id) ON DELETE NO ACTION,
+  FOREIGN KEY (state_id) REFERENCES states (id) ON DELETE NO ACTION,
   PRIMARY KEY (country_id, state_id)
 );
 
@@ -79,11 +79,11 @@ CREATE TABLE items (
   condition_id INT          NOT NULL,
   country_id   INT,
   state_id     INT,
-  FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE CASCADE,
-  FOREIGN KEY (brand_id) REFERENCES brands (id) ON DELETE CASCADE,
+  FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE NO ACTION,
+  FOREIGN KEY (brand_id) REFERENCES brands (id) ON DELETE NO ACTION,
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
-  FOREIGN KEY (condition_id) REFERENCES conditions (id) ON DELETE CASCADE,
-  FOREIGN KEY (country_id, state_id) REFERENCES country_states (country_id, state_id) ON DELETE CASCADE
+  FOREIGN KEY (condition_id) REFERENCES conditions (id) ON DELETE NO ACTION,
+  FOREIGN KEY (country_id, state_id) REFERENCES country_states (country_id, state_id) ON DELETE NO ACTION
 );
 
 CREATE TABLE images (
